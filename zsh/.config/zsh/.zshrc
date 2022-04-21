@@ -29,6 +29,20 @@ zle -N down-line-or-beginning-search
 # Colors
 autoload -Uz colors && colors
 
+# proxy settings
+export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+port=10811
+proxy_env="http://${host_ip}:${port}"
+alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env};echo "proxy set"'
+alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
+alias g_proxy='git config --global http.proxy "${proxy_env}"; git config --global https.proxy "${proxy_env}";echo "git config proxy set."'
+alias g_unproxy='git config --global --unset http.proxy;git config --global --unset https.proxy;echo "git config proxy unset."'
+alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}"'
+
+export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env}
+git config --global http.proxy "${proxy_env}"
+git config --global https.proxy "${proxy_env}"
+
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
@@ -42,6 +56,7 @@ zsh_add_file "zsh-prompt"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
+# zsh_add_plugin "skywind3000/z.lua"
 # zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
