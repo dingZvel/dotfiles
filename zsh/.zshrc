@@ -63,6 +63,14 @@ zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 
+# z.lua config
+export _ZL_MATCH_MODE=1
+alias zc='z -c'      # match sub-dir only
+alias zz='z -i'      # use interactive choosing mode
+alias zf='z -I'      # use fzf to choose from multipule results
+alias zb='z -b'      # back to parent directory
+alias zh='z -I -t .' # search from command history
+
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
 bindkey -s '^f' 'zi^M'
