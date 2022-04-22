@@ -1,11 +1,11 @@
 # dotfiles
  my dotfiles of Arch Linux on WSL2
 
-### Dependency
+## Dependency
 - [git](https://github.com/git/git)
 - [GNU stow](https://www.gnu.org/software/stow/)
 
-### Installing
+## Installing
 cd into your `$HOME` directory or simply `~` and then
 ```bash
 git clone https://github.com/dingZvel/dotfiles.git
