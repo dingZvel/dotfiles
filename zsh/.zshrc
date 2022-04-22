@@ -39,7 +39,7 @@ alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=$
 alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
 alias g_proxy='git config --global http.proxy "${proxy_env}"; git config --global https.proxy "${proxy_env}";echo "git config proxy set."'
 alias g_unproxy='git config --global --unset http.proxy;git config --global --unset https.proxy;echo "git config proxy unset."'
-alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}"'
+alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}\ngit_proxy=${proxy_env}"'
 
 export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env}
 git config --global http.proxy "${proxy_env}"
