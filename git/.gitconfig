@@ -1,0 +1,13 @@
+[http]
+	proxy = http://127.0.0.1:20172
+[https]
+	proxy = http://127.0.0.1:20172
+[user]
+	email = zhezhe0214@126.com
+	name = dingZvel
+[core]
+  editor = nvim
+[credential]
+  helper = store
+[init]
+  defaultBranch = main
