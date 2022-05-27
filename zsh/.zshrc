@@ -32,8 +32,9 @@ zle -N down-line-or-beginning-search
 autoload -Uz colors && colors
 
 # proxy settings
-export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-port=10811
+#export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+export host_ip=127.0.0.1
+port=20172
 proxy_env="http://${host_ip}:${port}"
 alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env};echo "proxy set"'
 alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
@@ -59,7 +60,7 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "skywind3000/z.lua"
-zsh_add_completion "esc/conda-zsh-completion" false
+# zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 
