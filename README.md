@@ -1,5 +1,5 @@
 # dotfiles
- my dotfiles of Arch Linux on WSL2
+ my dotfiles of Arch Linux
 
 ## Dependency
 - [git](https://github.com/git/git)
