@@ -32,7 +32,7 @@ autoload -Uz colors && colors
 # proxy settings
 #export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 export host_ip=127.0.0.1
-port=20172
+port=20171
 proxy_env="http://${host_ip}:${port}"
 alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env};echo "proxy set"'
 alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
@@ -40,9 +40,10 @@ alias g_proxy='git config --global http.proxy "${proxy_env}"; git config --globa
 alias g_unproxy='git config --global --unset http.proxy;git config --global --unset https.proxy;echo "git config proxy unset."'
 alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}"'
 
-export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env}
-git config --global http.proxy "${proxy_env}"
-git config --global https.proxy "${proxy_env}"
+# Enable proxy by default
+# export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env}
+# git config --global http.proxy "${proxy_env}"
+# git config --global https.proxy "${proxy_env}"
 
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
@@ -61,6 +62,14 @@ zsh_add_plugin "skywind3000/z.lua"
 # zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
+
+# z.lua config
+export _ZL_MATCH_MODE=1
+alias zc='z -c'      # match sub-dir only
+alias zz='z -i'      # use interactive choosing mode
+alias zf='z -I'      # use fzf to choose from multipule results
+alias zb='z -b'      # back to parent directory
+alias zh='z -I -t .' # search from command history
 
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
