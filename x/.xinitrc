@@ -69,6 +69,11 @@ fcitx5 &
 
 # feh --bg-fill --randomize ~/.wallpapers/* &
 feh --bg-fill ~/.wallpapers/XVIM9S.jpg &
-picom -cb
+# picom -cb
+picom -b
+
+while true; do
+  dwm >/dev/null 2>&1
+done
 
 exec dwm
