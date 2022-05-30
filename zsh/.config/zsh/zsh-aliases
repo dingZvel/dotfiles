@@ -44,7 +44,10 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # For when keys break
-alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+alias archlinux-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --populate archlinuxcn && sudo pacman-key --refresh-keys"
+
+# autostart startx without printout
+alias startx='startx &> ~/.xlog'
 
 # systemd
 alias mach_list_systemctl="systemctl list-unit-files --state=enabled"
