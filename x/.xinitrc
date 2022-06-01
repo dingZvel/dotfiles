@@ -54,10 +54,12 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
+# Display
 xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 xrandr --addmode Virtual-1 1920x1080_60.00
 xrandr --output Virtual-1 --mode 1920x1080_60.00
 
+# INPUT_METHOD
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
@@ -65,12 +67,12 @@ export INPUT_METHOD=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
-fcitx5 &
+fcitx5 -d &
 
 # feh --bg-fill --randomize ~/.wallpapers/* &
 feh --bg-fill ~/.wallpapers/XVIM9S.jpg &
 # picom -cb
-picom -b
+# picom -b
 
 while true; do
   dwm >/dev/null 2>&1
