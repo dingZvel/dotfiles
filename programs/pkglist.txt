@@ -1,4 +1,4 @@
-alacritty
+alacritty-ligatures-git
 alsa-utils
 archlinuxcn-keyring
 autoconf
@@ -49,6 +49,7 @@ python-pip
 ranger
 reflector
 ripgrep
+skippy-xd-git
 stow
 sudo
 texinfo
