@@ -33,14 +33,14 @@ autoload -Uz colors && colors
 
 # proxy settings
 #export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-export host_ip=127.0.0.1
-port=20171
-proxy_env="http://${host_ip}:${port}"
-alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env};echo "proxy set"'
-alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
-alias g_proxy='git config --global http.proxy "${proxy_env}"; git config --global https.proxy "${proxy_env}";echo "git config proxy set."'
-alias g_unproxy='git config --global --unset http.proxy;git config --global --unset https.proxy;echo "git config proxy unset."'
-alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}"'
+#export host_ip=127.0.0.1
+#port=20171
+#proxy_env="http://${host_ip}:${port}"
+#alias proxy='export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env};echo "proxy set"'
+#alias unproxy='unset all_proxy http_proxy https_proxy;echo "proxy unset"'
+#alias g_proxy='git config --global http.proxy "${proxy_env}"; git config --global https.proxy "${proxy_env}";echo "git config proxy set."'
+#alias g_unproxy='git config --global --unset http.proxy;git config --global --unset https.proxy;echo "git config proxy unset."'
+#alias d_proxy='echo "Host ip=${host_ip}\nall_proxy=${all_proxy}\nhttp_proxy=${http_proxy}\nhttps_proxy=${https_proxy}"'
 
 # Enable proxy by default
 # export all_proxy=${proxy_env} http_proxy=${proxy_env} https_proxy=${proxy_env}
