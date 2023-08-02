@@ -79,5 +79,7 @@ while true; do
 done
 
 dwmblocks &
+blueman-applet &
+redshift &
 
 exec dwm
