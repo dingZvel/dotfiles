@@ -125,6 +125,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 eval $(thefuck --alias)
 
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     exec startx
 fi
