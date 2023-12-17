@@ -75,14 +75,14 @@ alias zh='z -I -t .' # search from command history
 
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
-bindkey -s '^f' 'zi^M'
+# bindkey -s '^f' 'zi^M'
 bindkey -s '^s' 'ncdu^M'
-# bindkey -s '^n' 'nvim $(fzf)^M'
-# bindkey -s '^v' 'nvim\n'
-bindkey -s '^z' 'zi^M'
+bindkey -s '^n' 'nvim $(fzf)^M'
+bindkey -s '^v' 'nvim\n'
+# bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char
-bindkey "^p" up-line-or-beginning-search # Up
-bindkey "^n" down-line-or-beginning-search # Down
+# bindkey "^p" up-line-or-beginning-search # Up
+# bindkey "^n" down-line-or-beginning-search # Down
 bindkey "^k" up-line-or-beginning-search # Up
 bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
@@ -96,16 +96,14 @@ bindkey -r "^d"
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+# Enable fzf to search for hidden files(exclude files under .git)
+export FZF_DEFAULT_COMMAND="find \! \( -path '*/.git' -prune \) -printf '%P\n'"
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 compinit
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
-
-# TODO Remove these
-# setxkbmap -option caps:escape
-# xset r rate 210 40
 
 # Speedy keys
 # xset r rate 210 40
@@ -119,7 +117,7 @@ export BROWSER="brave"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # remap caps to escape
-# setxkbmap -option caps:escape
+setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
 
