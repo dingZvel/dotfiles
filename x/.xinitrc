@@ -73,13 +73,13 @@ feh --bg-fill --randomize ~/.wallpapers/* &
 # feh --bg-fill ~/.wallpapers/XVIM9S.jpg &
 # picom -cb
 # picom -b
+setsid dwmblocks &
+blueman-applet &
+redshift &
+
 
 while true; do
   dwm >/dev/null 2>&1
 done
-
-dwmblocks &
-blueman-applet &
-redshift &
 
 exec dwm
