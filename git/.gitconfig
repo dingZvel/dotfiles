@@ -3,7 +3,7 @@
 #[https]
 #	proxy = http://127.0.0.1:20171
 [user]
-	email = zhezhe0214@126.com
+	email = zhezhe0214@gmail.com
 	name = dingZvel
 [core]
   editor = nvim
