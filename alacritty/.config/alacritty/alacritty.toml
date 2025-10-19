@@ -1,0 +1,132 @@
+[general]
+live_config_reload = true
+
+# [colors.bright]
+# black = "#4C566A"
+# blue = "#5e81ac"
+# cyan = "#88c0d0"
+# green = "#A3BE8C"
+# magenta = "#B48EAD"
+# red = "#bf616a"
+# white = "#abb2bf"
+# yellow = "#D7BA7D"
+
+# black = "#4b5263"
+# blue = "#61AFEF"
+# cyan = "#56B6C2"
+# green = "#98C379"
+# magenta = "#C678DD"
+# red = "#e06c75"
+# white = "#abb2bf"
+# yellow = "#E5C07B"
+
+# [colors.cursor]
+# cursor = "#ECEFF4"
+# text = "#3B4252"
+
+# [colors.normal]
+# black = "#4C566A"
+# blue = "#5e81ac"
+# cyan = "#88c0d0"
+# green = "#A3BE8C"
+# magenta = "#B48EAD"
+# red = "#bf616a"
+# white = "#abb2bf"
+# yellow = "#D7BA7D"
+
+# black = "#4b5263"
+# blue = "#61AFEF"
+# cyan = "#56B6C2"
+# green = "#98C379"
+# magenta = "#C678DD"
+# red = "#e06c75"
+# white = "#abb2bf"
+# yellow = "#E5C07B"
+
+# [colors.primary]
+# background = "#1f2227"
+# foreground = "#abb2bf"
+# Colors (One Dark)
+
+# Default colors
+[colors.primary]
+background = '#282c34'
+foreground = '#abb2bf'
+
+# Normal colors
+[colors.normal]
+black   = '#1e2127'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#abb2bf'
+
+# Bright colors
+[colors.bright]
+black   = '#5c6370'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#ffffff'
+[cursor.style]
+blinking = "Never"
+
+[font]
+# ligatures = true
+size = 13.0
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[window]
+padding = { x = 5, y = 5 }
+decorations = "None"
+# blur =  true
+# opacity = 0.6
+opacity = 0.9
+startup_mode = "Windowed"
+dynamic_title = true
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ''',│`|:"' ()[]{}<>'''
+
+[keyboard]
+bindings = [
+    { key = "V", mods = "Control|Shift", action = "Paste" },
+    { key = "C", mods = "Control|Shift", action = "Copy" },
+    { key = "Key0", mods = "Control", action = "ResetFontSize" },
+    { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+    { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+    { key = "Return", mods = "Alt|Shift", action = "SpawnNewInstance" },
+]
+
+[mouse]
+hide_when_typing = true
