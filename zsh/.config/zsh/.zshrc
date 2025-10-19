@@ -3,7 +3,8 @@ export ZDOTDIR=$HOME/.config/zsh
 HISTFILE=~/.zsh_history
 setopt appendhistory
 
-export PATH=$PATH:~/scripts
+
+# export PATH=$PATH:~/scripts
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -76,9 +77,9 @@ alias zh='z -I -t .' # search from command history
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
 # bindkey -s '^f' 'zi^M'
-bindkey -s '^s' 'ncdu^M'
-bindkey -s '^n' 'nvim $(fzf)^M'
-bindkey -s '^v' 'nvim\n'
+# bindkey -s '^s' 'ncdu^M'
+bindkey -s '^f' 'nvim $(fzf)^M'
+bindkey -s '^n' 'nvim \n'
 # bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char
 # bindkey "^p" up-line-or-beginning-search # Up
@@ -88,17 +89,42 @@ bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
 
-# FZF 
-# TODO update for mac
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-# Enable fzf to search for hidden files(exclude files under .git)
-export FZF_DEFAULT_COMMAND="find \! \( -path '*/.git' -prune \) -printf '%P\n'"
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+# FZF  
+if command -v fzf &> /dev/null; then
+    [ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
+    [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+    [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+    [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+    [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    
+    if [[ "$(uname -s)" == "Darwin" && "$(command -v brew)" != "" ]] ; then
+        local FZF_HOME=$(brew --prefix)/opt/fzf
+        [ -f $FZF_HOME/shell/completion.zsh ] && source $FZF_HOME/shell/completion.zsh
+        [ -f $FZF_HOME/shell/key-bindings.zsh ] && source $FZF_HOME/shell/key-bindings.zsh
+    fi
+
+    if [ -n "${commands[fzf-share]}" ]; then
+        source "$(fzf-share)/key-bindings.zsh"
+        source "$(fzf-share)/completion.zsh"
+    fi
+fi
+
+# [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+# [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+# [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+# [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+# # Enable fzf to search for hidden files(exclude files under .git)
+# export FZF_DEFAULT_COMMAND="find \! \( -path '*/.git' -prune \) -printf '%P\n'"
+# # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+
+# Homebrew completion
+if type brew &>/dev/null; then
+    eval "$(brew shellenv)"
+fi
+
 compinit
 
 # Edit line in vim with ctrl-e:
@@ -117,7 +143,7 @@ export BROWSER="brave"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # remap caps to escape
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
 
