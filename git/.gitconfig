@@ -3,8 +3,13 @@
 #[https]
 #	proxy = http://127.0.0.1:20171
 [user]
-	email = zhezhe0214@gmail.com
 	name = dingZvel
+	email = ding_zhe@u.nus.edu
+  signingkey = ~/.ssh/id_ed25519.pub
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
 [core]
   editor = nvim
 [credential]
