@@ -158,3 +158,6 @@ fi
 # For Ruby gem path
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+
+# For GLFW lib path
+export LIBRARY_PATH=/opt/homebrew/lib
