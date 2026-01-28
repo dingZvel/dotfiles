@@ -58,7 +58,7 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   5
     outer.left =       5
     outer.bottom =     5
-    outer.top =        5
+    outer.top =        3
     outer.right =      5
 
 # 'main' binding mode declaration
@@ -255,3 +255,19 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-name-regex-substring = 'Finder'
     run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'Preview'
+    run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'Reminders'
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'Calendar'
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'Steam'
+    run = ['layout floating', 'move-node-to-workspace 5']
